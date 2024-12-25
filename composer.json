@@ -1,0 +1,39 @@
+{
+    "name": "walkerchiu/php-point-int",
+    "type": "library",
+    "authors": [
+        {
+            "name":  "Walker Chiu",
+            "email": "chenjen.chiou@gmail.com"
+        }
+    ],
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": "^7.3",
+        "walkerchiu/php-core-int": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "WalkerChiu\\Point\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "WalkerChiu\\Point\\PointServiceProvider"
+            ],
+            "aliases": {
+                "Setting": "WalkerChiu\\Point\\Models\\Entities\\Setting",
+                "Wallet":  "WalkerChiu\\Point\\Models\\Entities\\Wallet",
+                "Log":     "WalkerChiu\\Point\\Models\\Entities\\Log"
+            }
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    }
+}
