@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Request;
 use Illuminate\Validation\Rule;
 use WalkerChiu\Core\Models\Forms\FormRequest;
 
-class LogFormRequest extends FormRequest
+class RecordFormRequest extends FormRequest
 {
     /**
      * @Override Illuminate\Foundation\Http\FormRequest::getValidatorInstance
@@ -35,11 +35,11 @@ class LogFormRequest extends FormRequest
     public function attributes()
     {
         return [
-            'wallet_id'      => trans('php-point::log.wallet_id'),
-            'value_original' => trans('php-point::log.value_original'),
-            'value'          => trans('php-point::log.value'),
-            'end_at'         => trans('php-point::log.end_at'),
-            'is_enabled'     => trans('php-point::log.is_enabled')
+            'wallet_id'      => trans('php-point::record.wallet_id'),
+            'value_original' => trans('php-point::record.value_original'),
+            'value'          => trans('php-point::record.value'),
+            'end_at'         => trans('php-point::record.end_at'),
+            'is_enabled'     => trans('php-point::record.is_enabled')
         ];
     }
 
@@ -63,7 +63,7 @@ class LogFormRequest extends FormRequest
             $request->isMethod('put')
             && isset($request->id)
         ) {
-            $rules = array_merge($rules, ['id' => ['required','string','exists:'.config('wk-core.table.point.logs').',id']]);
+            $rules = array_merge($rules, ['id' => ['required','string','exists:'.config('wk-core.table.point.records').',id']]);
         }
 
         return $rules;

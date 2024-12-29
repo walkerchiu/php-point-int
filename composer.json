@@ -27,7 +27,7 @@
             "aliases": {
                 "Setting": "WalkerChiu\\Point\\Models\\Entities\\Setting",
                 "Wallet":  "WalkerChiu\\Point\\Models\\Entities\\Wallet",
-                "Log":     "WalkerChiu\\Point\\Models\\Entities\\Log"
+                "Record":  "WalkerChiu\\Point\\Models\\Entities\\Record"
             }
         }
     },

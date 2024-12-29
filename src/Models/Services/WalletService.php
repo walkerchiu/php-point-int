@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\App;
 use WalkerChiu\Core\Models\Exceptions\NotExpectedEntityException;
 use WalkerChiu\Core\Models\Exceptions\NotFoundEntityException;
 use WalkerChiu\Core\Models\Services\CheckExistTrait;
-use WalkerChiu\Point\Models\Services\LogService;
+use WalkerChiu\Point\Models\Services\RecordService;
 
 class WalletService
 {
@@ -103,17 +103,17 @@ class WalletService
     }
 
     /**
-     * Update logs.
+     * Update records.
      *
      * @param Wallet|Int  $source
      * @param Float       $value
      * @return Bool|Float
      */
-    public function updateLog($source, float $value)
+    public function updateRecord($source, float $value)
     {
         $entity = $this->findBySource($source);
 
-        $service = new LogService();
+        $service = new RecordService();
         $list = $service->listEnabeld($entity->id);
         if ($list->isEmpty())
             return false;
@@ -137,7 +137,7 @@ class WalletService
      */
     public function processValue($source, float $value): bool
     {
-        $value_remaining = $this->updateLog($source, $value);
+        $value_remaining = $this->updateRecord($source, $value);
 
         $entity = $this->findBySource($source);
 

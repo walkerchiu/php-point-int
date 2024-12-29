@@ -65,7 +65,7 @@ class CreateWkPointTable extends Migration
             $table->index('is_enabled');
         });
 
-        Schema::create(config('wk-core.table.point.logs'), function (Blueprint $table) {
+        Schema::create(config('wk-core.table.point.records'), function (Blueprint $table) {
             $table->uuid('id');
             $table->unsignedBigInteger('wallet_id');
             $table->unsignedDecimal('value_original', config('wk-point.unsigned_decimal.precision'), config('wk-point.unsigned_decimal.scale'));
@@ -88,7 +88,7 @@ class CreateWkPointTable extends Migration
     }
 
     public function down() {
-        Schema::dropIfExists(config('wk-core.table.point.logs'));
+        Schema::dropIfExists(config('wk-core.table.point.records'));
         Schema::dropIfExists(config('wk-core.table.point.wallets'));
         Schema::dropIfExists(config('wk-core.table.point.settings_lang'));
         Schema::dropIfExists(config('wk-core.table.point.settings'));

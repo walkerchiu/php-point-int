@@ -3,9 +3,9 @@
 /** @var \Illuminate\Database\Eloquent\Factory  $factory */
 
 use Faker\Generator as Faker;
-use WalkerChiu\Point\Models\Entities\Log;
+use WalkerChiu\Point\Models\Entities\Record;
 
-$factory->define(Log::class, function (Faker $faker) {
+$factory->define(Record::class, function (Faker $faker) {
 	$value_original = $faker->randomNumber;
 
     return [

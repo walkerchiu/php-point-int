@@ -103,7 +103,7 @@ class WalletObserver
     public function deleted($entity)
     {
         if ($entity->isForceDeleting()) {
-            $records = $entity->logs()->withTrashed()->get();
+            $records = $entity->records()->withTrashed()->get();
             foreach ($records as $record) {
                 $record->forceDelete();
             }

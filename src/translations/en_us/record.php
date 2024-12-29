@@ -4,7 +4,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Point: Log
+    | Point: Record
     |--------------------------------------------------------------------------
     |
     */
@@ -16,9 +16,9 @@ return [
 
     'is_enabled' => 'Is Enabled',
 
-    'list'   => 'Log List',
-    'create' => 'Create Log',
-    'edit'   => 'Edit Log',
+    'list'   => 'Record List',
+    'create' => 'Create Record',
+    'edit'   => 'Edit Record',
 
     'form' => [
         'information' => 'Information',
@@ -26,7 +26,7 @@ return [
     ],
 
     'delete' => [
-        'header' => 'Delete Log',
-        'body'   => 'Are you sure you want to delete this log?'
+        'header' => 'Delete Record',
+        'body'   => 'Are you sure you want to delete this record?'
     ]
 ];

@@ -9,7 +9,7 @@ use WalkerChiu\Core\Models\Repositories\Repository;
 use WalkerChiu\Core\Models\Repositories\RepositoryTrait;
 use WalkerChiu\Core\Models\Services\PackagingFactory;
 
-class LogRepository extends Repository
+class RecordRepository extends Repository
 {
     use FormTrait;
     use RepositoryTrait;
@@ -25,7 +25,7 @@ class LogRepository extends Repository
      */
     public function __construct()
     {
-        $this->instance = App::make(config('wk-core.class.point.log'));
+        $this->instance = App::make(config('wk-core.class.point.record'));
     }
 
     /**
@@ -72,7 +72,7 @@ class LogRepository extends Repository
     }
 
     /**
-     * @param Log  $instance
+     * @param Record  $instance
      * @return Array
      */
     public function show($instance): array

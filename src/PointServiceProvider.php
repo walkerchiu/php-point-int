@@ -50,7 +50,7 @@ class PointServiceProvider extends ServiceProvider
         config('wk-core.class.point.setting')::observe(config('wk-core.class.point.settingObserver'));
         config('wk-core.class.point.settingLang')::observe(config('wk-core.class.point.settingLangObserver'));
         config('wk-core.class.point.wallet')::observe(config('wk-core.class.point.walletObserver'));
-        config('wk-core.class.point.log')::observe(config('wk-core.class.point.logObserver'));
+        config('wk-core.class.point.record')::observe(config('wk-core.class.point.recordObserver'));
     }
 
     /**

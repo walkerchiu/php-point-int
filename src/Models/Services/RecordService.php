@@ -8,7 +8,7 @@ use WalkerChiu\Core\Models\Exceptions\NotFoundEntityException;
 use WalkerChiu\Core\Models\Exceptions\NotInScopeException;
 use WalkerChiu\Core\Models\Services\CheckExistTrait;
 
-class LogService
+class RecordService
 {
     use CheckExistTrait;
 
@@ -23,24 +23,24 @@ class LogService
      */
     public function __construct()
     {
-        $this->repository = App::make(config('wk-core.class.point.logRepository'));
+        $this->repository = App::make(config('wk-core.class.point.recordRepository'));
     }
 
     /*
     |--------------------------------------------------------------------------
-    | Get log
+    | Get record
     |--------------------------------------------------------------------------
     */
 
     /**
-     * @param String  $log_id
+     * @param String  $record_id
      * @return Wallet
      *
      * @throws NotFoundEntityException
      */
-    public function find(string $log_id)
+    public function find(string $record_id)
     {
-        $entity = $this->repository->find($log_id);
+        $entity = $this->repository->find($record_id);
 
         if (empty($entity))
             throw new NotFoundEntityException($entity);
@@ -49,7 +49,7 @@ class LogService
     }
 
     /**
-     * @param Log|String  $source
+     * @param Record|String  $source
      * @return Wallet
      *
      * @throws NotExpectedEntityException
@@ -58,7 +58,7 @@ class LogService
     {
         if (is_string($source))
             $entity = $this->find($source);
-        elseif (is_a($source, config('wk-core.class.point.log')))
+        elseif (is_a($source, config('wk-core.class.point.record')))
             $entity = $source;
         else
             throw new NotExpectedEntityException($source);
@@ -88,7 +88,7 @@ class LogService
      * @param Float     $value
      * @param Datetime  $end_at
      * @param Bool      $is_enabled
-     * @return Log
+     * @return Record
      */
     public function add(int $wallet_id, float $value, $end_at = null, $is_enabled = true)
     {
@@ -104,8 +104,8 @@ class LogService
     /**
      * Update end_at.
      *
-     * @param Log|String  $source
-     * @param Datetime    $end_at
+     * @param Record|String  $source
+     * @param Datetime       $end_at
      * @return Bool
      */
     public function updateEndAt($source, $end_at = null): bool
@@ -118,8 +118,8 @@ class LogService
     /**
      * Check if the value is sufficient.
      *
-     * @param Log|String  $source
-     * @param Float       $value
+     * @param Record|String  $source
+     * @param Float          $value
      * @return Bool
      */
     public function checkValueIsSufficient($source, float $value): bool
@@ -132,8 +132,8 @@ class LogService
     /**
      * Update value.
      *
-     * @param Log|String  $source
-     * @param Float       $value
+     * @param Record|String  $source
+     * @param Float          $value
      * @return Bool
      *
      * @throws NotInScopeException
@@ -151,8 +151,8 @@ class LogService
     /**
      * Process value.
      *
-     * @param Log|String  $source
-     * @param Float       $value
+     * @param Record|String  $source
+     * @param Float          $value
      * @return Bool|Float
      *
      * @throws NotInScopeException

@@ -2,7 +2,7 @@
 
 namespace WalkerChiu\Point\Models\Observers;
 
-class LogObserver
+class RecordObserver
 {
     /**
      * Handle the entity "retrieved" event.

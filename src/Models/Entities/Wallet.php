@@ -35,9 +35,9 @@ class Wallet extends Entity
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function logs()
+    public function records()
     {
-        return $this->hasMany(config('wk-core.class.point.log'), 'wallet_id', 'id');
+        return $this->hasMany(config('wk-core.class.point.record'), 'wallet_id', 'id');
     }
 
     /**

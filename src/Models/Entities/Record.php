@@ -4,7 +4,7 @@ namespace WalkerChiu\Point\Models\Entities;
 
 use WalkerChiu\Core\Models\Entities\UuidEntity;
 
-class Log extends UuidEntity
+class Record extends UuidEntity
 {
     /**
      * Create a new instance.
@@ -14,7 +14,7 @@ class Log extends UuidEntity
      */
     public function __construct(array $attributes = [])
     {
-        $this->table = config('wk-core.table.point.logs');
+        $this->table = config('wk-core.table.point.records');
 
         $this->fillable = array_merge($this->fillable, [
             'wallet_id',
